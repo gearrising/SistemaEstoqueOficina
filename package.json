@@ -1,0 +1,19 @@
+{
+  "name": "sistema-de-estoque",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w @estoque/api\" \"npm run dev -w @estoque/web\"",
+    "build": "npm run build -w @estoque/shared && npm run build -w @estoque/api && npm run build -w @estoque/web",
+    "migrate": "npm run migrate -w @estoque/api",
+    "seed": "npm run seed -w @estoque/api",
+    "db:generate": "npm run db:generate -w @estoque/api"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
