@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '@/lib/api';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { LoadingSpinner, EmptyState, Badge } from '@/components/ui/badge';
 import { formatCurrency } from '@/lib/utils';
+import { MapPin } from 'lucide-react';
 
 export function StockPage() {
   const [filter, setFilter] = useState<'all' | 'low' | 'out'>('all');
@@ -33,7 +35,12 @@ export function StockPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <h1 className="text-2xl md:text-3xl font-bold">Estoque</h1>
-        <Button variant="outline" onClick={() => refetch()}>Atualizar</Button>
+        <div className="flex gap-2">
+          <Link to="/estoque/locais">
+            <Button variant="outline"><MapPin className="h-5 w-5" /> Locais de estoque</Button>
+          </Link>
+          <Button variant="outline" onClick={() => refetch()}>Atualizar</Button>
+        </div>
       </div>
 
       <div className="flex flex-wrap gap-2">

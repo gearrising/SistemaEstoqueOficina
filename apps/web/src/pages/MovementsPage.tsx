@@ -183,7 +183,7 @@ export function MovementsPage() {
 
             {locations && (
               <div>
-                <Label>Localização</Label>
+                <Label>Local de estoque</Label>
                 <select
                   value={locationId}
                   onChange={(e) => setLocationId(e.target.value)}
@@ -198,7 +198,7 @@ export function MovementsPage() {
 
             {selectedType === 'TRANSFER' && locations && (
               <div>
-                <Label>Destino</Label>
+                <Label>Local de estoque destino</Label>
                 <select
                   value={targetLocationId}
                   onChange={(e) => setTargetLocationId(e.target.value)}

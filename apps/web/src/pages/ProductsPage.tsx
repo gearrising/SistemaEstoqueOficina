@@ -195,7 +195,7 @@ export function ProductsPage() {
             <div className="grid grid-cols-3 gap-3">
               <div><Label>Marca</Label><Input {...form.register('brand')} /></div>
               <div><Label>Unidade</Label><Input {...form.register('unit')} /></div>
-              <div><Label>Localização</Label><Input {...form.register('physicalLocation')} /></div>
+              <div><Label>Posição física</Label><Input {...form.register('physicalLocation')} placeholder="Ex.: Prateleira A3" /></div>
             </div>
             <div className="grid grid-cols-3 gap-3">
               <div><Label>Preço compra</Label><Input type="number" step="0.01" {...form.register('purchasePrice')} /></div>

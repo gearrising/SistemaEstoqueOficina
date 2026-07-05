@@ -9,6 +9,7 @@ import { ProtectedRoute } from '@/components/layout/ProtectedRoute';
 import { LoginPage } from '@/pages/LoginPage';
 import { DashboardPage } from '@/pages/DashboardPage';
 import { StockPage } from '@/pages/StockPage';
+import { StockLocationsPage } from '@/pages/StockLocationsPage';
 import { ProductsPage } from '@/pages/ProductsPage';
 import { CategoriesPage } from '@/pages/CategoriesPage';
 import { SuppliersPage } from '@/pages/SuppliersPage';
@@ -68,6 +69,7 @@ function AppRoutes() {
               <Routes>
                 <Route path="/" element={<ProtectedRoute permission="dashboard:read"><DashboardPage /></ProtectedRoute>} />
                 <Route path="/estoque" element={<ProtectedRoute permission="stock:read"><StockPage /></ProtectedRoute>} />
+                <Route path="/estoque/locais" element={<ProtectedRoute permission="stock:read"><StockLocationsPage /></ProtectedRoute>} />
                 <Route path="/produtos" element={<ProtectedRoute permission="products:read"><ProductsPage /></ProtectedRoute>} />
                 <Route path="/categorias" element={<ProtectedRoute permission="categories:read"><CategoriesPage /></ProtectedRoute>} />
                 <Route path="/fornecedores" element={<ProtectedRoute permission="suppliers:read"><SuppliersPage /></ProtectedRoute>} />
