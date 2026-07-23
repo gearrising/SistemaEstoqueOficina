@@ -78,7 +78,7 @@ export async function listStock(filters?: {
         internalCode: p.internalCode,
         name: p.name,
         brand: p.brand,
-        category: p.category.name,
+        category: p.category?.name ?? null,
         supplier: p.supplier?.legalName,
         physicalLocation: p.physicalLocation,
         minQuantity: Number(p.minQuantity),

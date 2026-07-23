@@ -153,8 +153,8 @@ model Product {
   qrCodeData       String?
   name             String
   description      String?
-  categoryId       String
-  category         Category          @relation(fields: [categoryId], references: [id])
+  categoryId       String?
+  category         Category?         @relation(fields: [categoryId], references: [id])
   brand            String?
   supplierId       String?
   supplier         Supplier?         @relation(fields: [supplierId], references: [id])

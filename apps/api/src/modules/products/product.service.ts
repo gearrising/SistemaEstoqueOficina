@@ -111,6 +111,7 @@ export async function create(data: ProductInput) {
       salePrice: data.salePrice,
       minQuantity: data.minQuantity,
       maxQuantity: data.maxQuantity,
+      categoryId: data.categoryId || null,
       supplierId: data.supplierId || null,
     },
     include: { category: true, supplier: true },
@@ -139,7 +140,8 @@ export async function update(id: string, data: Partial<ProductInput>) {
     where: { id },
     data: {
       ...data,
-      supplierId: data.supplierId === null ? null : data.supplierId,
+      categoryId: data.categoryId === undefined ? undefined : data.categoryId || null,
+      supplierId: data.supplierId === undefined ? undefined : data.supplierId || null,
     },
     include: { category: true, supplier: true },
   });

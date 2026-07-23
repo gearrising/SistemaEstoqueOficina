@@ -18,8 +18,8 @@ type ProductRow = ProductInput & {
   id: string;
   currentQuantity: number;
   imageUrl?: string;
-  category: { id: string; name: string };
-  categoryId: string;
+  category?: { id: string; name: string } | null;
+  categoryId?: string | null;
   supplierId?: string | null;
 };
 
@@ -87,7 +87,7 @@ export function ProductsPage() {
       barcode: product.barcode ?? '',
       name: product.name,
       description: product.description ?? '',
-      categoryId: product.categoryId,
+      categoryId: product.categoryId ?? '',
       brand: product.brand ?? '',
       supplierId: product.supplierId ?? '',
       physicalLocation: product.physicalLocation ?? '',
@@ -176,7 +176,7 @@ export function ProductsPage() {
               <div>
                 <Label>Categoria</Label>
                 <select {...form.register('categoryId')} className="w-full h-12 rounded-xl border-2 px-3 dark:bg-slate-900">
-                  <option value="">Selecione</option>
+                  <option value="">Nenhuma</option>
                   {categories?.map((c: { id: string; name: string }) => (
                     <option key={c.id} value={c.id}>{c.name}</option>
                   ))}

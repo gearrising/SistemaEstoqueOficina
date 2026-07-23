@@ -37,7 +37,7 @@ async function getReportData(type: ReportType, filters?: { startDate?: string; e
       return products.map((p) => ({
         name: p.name,
         internalCode: p.internalCode,
-        category: p.category.name,
+        category: p.category?.name ?? null,
         lastMovement: p.lastMovementAt,
         quantity: p.stockBalances.reduce((s, b) => s + Number(b.quantity), 0),
       }));

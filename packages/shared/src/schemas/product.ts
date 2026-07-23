@@ -6,9 +6,15 @@ export const productSchema = z.object({
   barcode: z.string().optional(),
   name: z.string().min(2, 'Nome obrigatório'),
   description: z.string().optional(),
-  categoryId: z.string().uuid('Categoria inválida'),
+  categoryId: z.preprocess(
+    (val) => (val === '' || val === null || val === undefined ? undefined : val),
+    z.string().uuid('Categoria inválida').optional().nullable(),
+  ),
   brand: z.string().optional(),
-  supplierId: z.string().uuid().optional().nullable(),
+  supplierId: z.preprocess(
+    (val) => (val === '' || val === null || val === undefined ? undefined : val),
+    z.string().uuid().optional().nullable(),
+  ),
   physicalLocation: z.string().optional(),
   unit: z.string().default('UN'),
   purchasePrice: z.coerce.number().min(0).default(0),
